@@ -1,0 +1,35 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: leyou-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5  # 拉取服务的间隔时间
+zuul:
+  prefix: /api
+  routes:        # 下面这些其实就是添加路由规则
+    item-service: /item/**   # 路由到商品的微服务（意思是我们访问网关；就会路由到商品的页面？）
+    search-service: /search/**  # 路由到搜索微服务
+    user-service: /user/**   # 记得在网关配置东西
+    auth-service: /auth/**   # 网关这里配置了这个URL的头；就不需要在表现层配置全局路劲了
+    cart-service: /cart/**
+    order-service: /order/**
+  add-host-header: true   #   解决浏览器看不到cookie的问题（day17天那里）
+  sensitive-headers:   # 为空；目的是覆盖默认敏感头信息（解决浏览器不显示cookie问题）
+leyou:  # 复制过来的
+  jwt:
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: LY_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
+
+

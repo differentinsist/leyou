@@ -1,0 +1,24 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: search-service
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.217.128:9300  # 你自己虚拟机的IP和服务的端口192.168.217.128:9300
+  jackson:
+    default-property-inclusion: non_null    # 设置这个之后；就不会返回null的属性到前端了;就好看很多
+  rabbitmq:
+    host: 192.168.217.128   # 端口默认是5672
+    virtual-host: /leyou   # 虚拟主机是我们自己创建的;其实就相当在linux下的目录 /
+    username: leyou    # 用户名和密码都是在RabbiMQ网页客户端创建的
+    password: leyou
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15

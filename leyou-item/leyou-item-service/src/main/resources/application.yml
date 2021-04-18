@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql:///hm49
+    username: root
+    password: qbj5201314
+  rabbitmq:
+    host: 192.168.217.128   # 端口默认是5672
+    virtual-host: /leyou   # 虚拟主机是我们自己创建的;其实就相当在linux下的目录 /
+    username: leyou    # 用户名和密码都是在RabbiMQ网页客户端创建的
+    password: leyou
+    template:
+      exchange: LEYOU.ITEM.EXCHANGE  # 配置默认交换机可小写也可大写（小写变大写的快捷键是什么？）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5  # 心跳时间
+    lease-expiration-duration-in-seconds: 15       # 过期时间？
+mybatis:
+  type-aliases-package: com.leyou.item.pojo  # mybatis别名扫描(不同的微服务了；只写包路劲就行？能扫描到？)
