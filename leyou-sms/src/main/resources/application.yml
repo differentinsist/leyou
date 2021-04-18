@@ -10,7 +10,7 @@ spring:
     password: leyou
 leyou:     # 这里的东西我们要创建类来读取？？？
   sms:
-    accessKeyId: LTAI4G3RuQJmzgttkCdFLnZo  # 你自己的短信的accessKeyId
-    accessKeySecret: asCB7gGhuuKygRfyglPhqR1ScDvRe5  # 你自己的AccessKeySecret
+    accessKeyId: xxxxxxx  # 你自己的短信的accessKeyId
+    accessKeySecret: xxxxxx  # 你自己的AccessKeySecret
     signName: 旅店系统  # 签名名称(要和阿里云那里的一样吗)
     verifyCodeTemplate: SMS_211487578  # 模板名称(要和阿里云那里的一样吗)
